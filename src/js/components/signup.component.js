@@ -22,17 +22,17 @@ export class SignUpComponent {
                             </div>
                         </div>
 
-                        <input type="text" class="form-control form-control-sm mt-3" id="nick_name" placeholder="Nick Name">
+                        <input type="text" class="form-control form-control-sm mt-3" id="nickname" placeholder="Nick Name">
 
                         <div class="row mt-3">
                             <div class="col col-4">
-                                <input type="text" class="form-control form-control-sm" id="day_of_birth" placeholder="Day">
+                                <input type="text" class="form-control form-control-sm" id="date_of_birth_day" placeholder="Day">
                             </div>
                             <div class="col col-4">
-                                <input type="text" class="form-control form-control-sm" id="month_of_birth" placeholder="Month">
+                                <input type="text" class="form-control form-control-sm" id="date_of_birth_month" placeholder="Month">
                             </div>
                             <div class="col col-4">
-                                <input type="text" class="form-control form-control-sm" id="year_of_birth" placeholder="Year">
+                                <input type="text" class="form-control form-control-sm" id="date_of_birth_year" placeholder="Year">
                             </div>
                         </div>
 
@@ -45,7 +45,7 @@ export class SignUpComponent {
                             </div>
                         </div>
 
-                        <select name="gender" id="gender" class="form-control form-control-sm mt-3">
+                        <select name="gender" id="gender_orientation" class="form-control form-control-sm mt-3">
                             <option value="male">Male</option>
                             <option value="male">Female</option>
                         </select>
@@ -54,7 +54,7 @@ export class SignUpComponent {
                         <input type="text" class="form-control form-control-sm mt-3" id="phone" placeholder="Phone number">
                         <input type="password" class="form-control form-control-sm mt-3" id="password" placeholder="password" required data-pattern="\S+">
                         <div class="d-flex mt-5">
-                            <button type="submit" class="btn btn-primary btn-sm">Sign Up</button>
+                            <button type="submit" id="signUp" class="btn btn-primary btn-sm">Sign Up</button>
                             <a href="#/login" class="btn btn-link btn-sm ml-auto">Already have an account? Sign in</a>
                         </div>
                     </div>
@@ -80,13 +80,13 @@ export class SignUpComponent {
             this._data.password = e.target.elements['password'].value;
             this._data.first_name = e.target.elements['first_name'].value;
             this._data.last_name = e.target.elements['last_name'].value;
-            this._data.nickname = e.target.elements['nick_name'].value;
-            this._data.date_of_birth_day = e.target.elements['day_of_birth'].value;
-            this._data.date_of_birth_month = e.target.elements['month_of_birth'].value;
-            this._data.date_of_birth_year = e.target.elements['year_of_birth'].value;
+            this._data.nickname = e.target.elements['nickname'].value;
+            this._data.date_of_birth_day = e.target.elements['date_of_birth_day'].value;
+            this._data.date_of_birth_month = e.target.elements['date_of_birth_month'].value;
+            this._data.date_of_birth_year = e.target.elements['date_of_birth_year'].value;
             this._data.country = e.target.elements['country'].value;
             this._data.city = e.target.elements['city'].value;
-            this._data.gender_orientation = e.target.elements['gender'].value;
+            this._data.gender_orientation = e.target.elements['gender_orientation'].value;
             this._data.phone = e.target.elements['phone'].value;
 
             console.log(this._data);

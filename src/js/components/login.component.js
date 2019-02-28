@@ -2,7 +2,7 @@ import { AuthService } from './../services/auth.service';
 
 export class LoginComponent {
     constructor() {
-        this._authService = new AuthService(); 
+        this._authService = new AuthService();
     }
     render() {
         return `
@@ -22,7 +22,6 @@ export class LoginComponent {
             </div>
             <!-- /.auth-form -->
             <div class="auth-bg col col-6">
-
             </div>
             <!-- /.auth-bg -->
         </div>
@@ -38,14 +37,14 @@ export class LoginComponent {
             const password = e.target.elements['password'].value;
 
             if (!email || !password) return;
-            
+
             this._authService.login(email, password)
                 .then((response) => {
                     console.log(response);
                 })
                 .catch((err) => {
                     console.log(err);
-                });                
+                });
         });
     }
 }

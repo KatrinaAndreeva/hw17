@@ -6,9 +6,25 @@ export class AuthService {
         const http = new Http();
 
         return new Promise((resolve, reject) => {
-            http.post(`${ENV.apiUrl}/public/auth/login`, {email, password})
+            http.post(`${ENV.apiUrl}/public/auth/login`, { email, password })
                 .then((response) => {
-                    if (!response.auth) return reject(response); 
+                    if (!response.auth) return reject(response);
+                    localStorage.setItem('sn_user_id', response.id);
+                    localStorage.setItem('sn_user_token', response.token);
+                    resolve(response);
+                })
+                .catch((err) => reject(err));
+        });
+    }
+
+
+    signUp(data) {
+        const http = new Http();
+
+        return new Promise((resolve, reject) => {
+            http.post(`${ENV.apiUrl}/public/auth/signup`, data)
+                .then((response) => {
+                    if (!response.auth) return reject(response);
                     localStorage.setItem('sn_user_id', response.id);
                     localStorage.setItem('sn_user_token', response.token);
                     resolve(response);
