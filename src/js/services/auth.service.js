@@ -2,6 +2,14 @@ import { Http } from './../core/http.service';
 import { ENV } from './../config/env';
 
 export class AuthService {
+    get userId() {
+        return localStorage.getItem('sn_user_id');
+    }
+
+    get token() {
+        return localStorage.getItem('sn_user_token');
+    }
+
     login(email, password) {
         const http = new Http();
 
@@ -17,6 +25,15 @@ export class AuthService {
         });
     }
 
+    logout() {
+        console.log("Logged out");
+        //user ptomise to minim async logout functionality
+        return new Promise((resolve, reject) => {
+            localStorage.removeItem('sn_user_id');
+            localStorage.removeItem('sn_user_token');
+            resolve();
+        });
+    }
 
     signUp(data) {
         const http = new Http();

@@ -3,8 +3,25 @@ import { AuthService } from '../services/auth.service';
 export class SignUpComponent {
     constructor() {
         this._signUpService = new AuthService();
-        this._data = {};
+        this._data = {
+            email: '',
+            password: '',
+            first_name: '',
+            last_name: '',
+            nickname: '',
+            date_of_birth_day: '',
+            date_of_birth_month: '',
+            date_of_birth_year: '',
+            country: '',
+            city: '',
+            gender_orientation: '',
+            phone: ''
+        };
     }
+    async beforeRender() {
+
+    }
+
     render() {
         return `
         <div class="auth-wrap d-flex">
@@ -47,7 +64,7 @@ export class SignUpComponent {
 
                         <select name="gender" id="gender_orientation" class="form-control form-control-sm mt-3">
                             <option value="male">Male</option>
-                            <option value="male">Female</option>
+                            <option value="female">Female</option>
                         </select>
 
                         <input type="email" class="form-control form-control-sm mt-3" id="email" placeholder="name@example.com" required data-pattern="^\S+@[a-z]+\.[a-z]+$">
@@ -73,21 +90,23 @@ export class SignUpComponent {
     afterRender() {
         document.forms['signUpForm'].addEventListener('submit', (e) => {
             e.preventDefault();
+            for (let key in this._data) {
+                this._data[key] = e.target.elements[key].value
+            }
 
 
-
-            this._data.email = e.target.elements['email'].value;
-            this._data.password = e.target.elements['password'].value;
-            this._data.first_name = e.target.elements['first_name'].value;
-            this._data.last_name = e.target.elements['last_name'].value;
-            this._data.nickname = e.target.elements['nickname'].value;
-            this._data.date_of_birth_day = e.target.elements['date_of_birth_day'].value;
-            this._data.date_of_birth_month = e.target.elements['date_of_birth_month'].value;
-            this._data.date_of_birth_year = e.target.elements['date_of_birth_year'].value;
-            this._data.country = e.target.elements['country'].value;
-            this._data.city = e.target.elements['city'].value;
-            this._data.gender_orientation = e.target.elements['gender_orientation'].value;
-            this._data.phone = e.target.elements['phone'].value;
+            // this._data.email = e.target.elements['email'].value;
+            // this._data.password = e.target.elements['password'].value;
+            // this._data.first_name = e.target.elements['first_name'].value;
+            // this._data.last_name = e.target.elements['last_name'].value;
+            // this._data.nickname = e.target.elements['nickname'].value;
+            // this._data.date_of_birth_day = e.target.elements['date_of_birth_day'].value;
+            // this._data.date_of_birth_month = e.target.elements['date_of_birth_month'].value;
+            // this._data.date_of_birth_year = e.target.elements['date_of_birth_year'].value;
+            // this._data.country = e.target.elements['country'].value;
+            // this._data.city = e.target.elements['city'].value;
+            // this._data.gender_orientation = e.target.elements['gender_orientation'].value;
+            // this._data.phone = e.target.elements['phone'].value;
 
             console.log(this._data);
 

@@ -3,10 +3,13 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
-    entry: './js/app.js',
+    entry: {
+        polyfill: 'babel-polyfill',
+        app: './js/app.js'
+    },
     context: path.resolve(__dirname, 'src'),
     output: {
-        filename: 'bundle.js',
+        filename: '[name].bundle.js',
         path: path.resolve(__dirname, 'dist')
     },
     devServer: {
@@ -15,8 +18,7 @@ module.exports = {
         port: 9000
     },
     module: {
-        rules: [
-            {
+        rules: [{
                 test: /\.m?js$/,
                 exclude: /(node_modules)/,
                 use: {
@@ -29,8 +31,8 @@ module.exports = {
             {
                 test: /\.css$/,
                 use: [
-                    {loader: MiniCssExtractPlugin.loader},
-                    {loader: 'css-loader'}
+                    { loader: MiniCssExtractPlugin.loader },
+                    { loader: 'css-loader' }
                 ]
             }
         ]
@@ -42,5 +44,5 @@ module.exports = {
             title: 'My App'
         })
     ],
-    mode: 'production'
+    mode: 'development'
 };
