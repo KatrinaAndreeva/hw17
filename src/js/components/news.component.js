@@ -48,7 +48,6 @@ export class NewsComponent {
             .news__item {
                 max-width: 930px;
                 margin: 0 auto;
-                background-color: grey;
                 height: 368px;
                 overflow: hidden;
 

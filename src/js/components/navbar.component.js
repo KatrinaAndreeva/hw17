@@ -13,6 +13,13 @@ export class NavbarComponent {
         if (!this._authService.token) return '';
 
         return `
+        <style>
+        .navbar-light 
+        .navbar-nav
+        .nav-link {
+            margin-right: 25px;
+        }
+        </style>
         <nav class="navbar navbar-light bg-light">
             <a class="navbar-brand">Social Network</a>
             <ul class="navbar-nav d-flex flex-row">
@@ -20,6 +27,11 @@ export class NavbarComponent {
                     <a class="nav-link" 
                     href="/#/users/${this._authService.userId}" 
                     >My profile</a>
+                </li>
+                <li class="nav-item" >
+                    <a class="nav-link" 
+                    href="/#/news" 
+                    >News</a>
                 </li>
             </ul>
             <button class="btn btn-primary logout-btn">Logout</button>
