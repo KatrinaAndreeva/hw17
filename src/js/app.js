@@ -7,6 +7,8 @@ import { ActiveRoute } from './core/active-route.service';
 import { NewsComponent } from './components/news.component';
 import { NavbarComponent } from './components/navbar.component';
 import { AuthGuard } from './guards/auth.guard';
+import { WinnersComponent } from './components/winners.component';
+
 
 
 const routes = {
@@ -30,6 +32,9 @@ const routes = {
     },
     '**': {
         component: new NotFoundComponent()
+    },
+    '/winners': {
+        component: new WinnersComponent()
     },
 
 }

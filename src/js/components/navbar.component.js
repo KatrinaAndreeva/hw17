@@ -1,5 +1,6 @@
-import { AuthService } from './../services/auth.service';
+import { AuthService } from '../services/auth.service';
 import { Routing } from '../core/routing.service';
+
 
 export class NavbarComponent {
     constructor() {
@@ -33,6 +34,11 @@ export class NavbarComponent {
                     href="/#/news" 
                     >News</a>
                 </li>
+                <li class="nav-item" >
+                <a class="nav-link" 
+                href="/#/winners" 
+                >Winners</a>
+            </li>
             </ul>
             <button class="btn btn-primary logout-btn">Logout</button>
         </nav>
